@@ -49,7 +49,7 @@ jobs:
         uses: actions/setup-java@v2
         with:
           java-version: '17'
-          distribution: 'corretto'  # Adjust to match your Java version
+          distribution: 'zulu'  # Adjust to match your Java version
 
       - name: Grant execute permissions for Gradle wrapper
         run: chmod +x gradlew
