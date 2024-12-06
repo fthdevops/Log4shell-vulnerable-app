@@ -44,19 +44,6 @@ jobs:
     steps:
       - name: Checkout the repository
         uses: actions/checkout@v2  # Checkout latest code (v2 is more stable than 'master')
-
-      - name: Set up JDK 17  # or whichever JDK version you are using
-        uses: actions/setup-java@v2
-        with:
-          java-version: '17'
-          distribution: 'zulu'  # Adjust to match your Java version
-      - name: setup java
-        run: |
-          echo "JAVA_HOME=/opt/hostedtoolcache/Java_Zulu_jdk/17.0.13-11" >> $GITHUB_ENV 
-
-      - name: Grant execute permissions for Gradle wrapper
-        run: chmod +x gradlew
-
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/gradle-jdk17@master  # Use the stable v2 version of the Snyk GitHub Action
         env:
