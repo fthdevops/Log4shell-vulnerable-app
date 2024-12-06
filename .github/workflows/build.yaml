@@ -57,6 +57,8 @@ jobs:
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/iac@master  # Use the stable v2 version of the Snyk GitHub Action
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} 
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        with:
+          file: build.gradle
         
         
