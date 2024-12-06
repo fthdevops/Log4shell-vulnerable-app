@@ -47,12 +47,12 @@ jobs:
       - name: gradle permission
         run: chmod 755 ./gradlew  # Checkout latest code (v2 is more stable than 'master')
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/gradle-jdk17@master 
-        continue-on-error: true # Use the stable v2 version of the Snyk GitHub Action
+        uses: snyk/actions/gradle-jdk17@master  # Use the stable v2 version of the Snyk GitHub Action
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
           args: --sarif-file-output=snyk.sarif
+        continue-on-error: true
       - name: Upload result to GitHub Code Scanning
         uses: github/codeql-action/upload-sarif@v3
         with:
