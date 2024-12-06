@@ -43,7 +43,9 @@ jobs:
 
     steps:
       - name: Checkout the repository
-        uses: actions/checkout@v2  # Checkout latest code (v2 is more stable than 'master')
+        uses: actions/checkout@v2 
+      - name: gradle permission
+        run: chmod 755 ./gradlew  # Checkout latest code (v2 is more stable than 'master')
       - name: Run Snyk to check for vulnerabilities
         uses: snyk/actions/gradle-jdk17@master  # Use the stable v2 version of the Snyk GitHub Action
         env:
