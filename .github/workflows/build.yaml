@@ -52,7 +52,7 @@ jobs:
           distribution: 'zulu'  # Adjust to match your Java version
       - name: setup java
         run: |
-          echo "JAVA_HOME=$(java -XshowSettings:properties -version 2>&1 > /dev/null | grep 'java.home')" >> $GITHUB_ENV 
+          echo "JAVA_HOME=/opt/hostedtoolcache/Java_Zulu_jdk/17.0.13-11" >> $GITHUB_ENV 
 
       - name: Grant execute permissions for Gradle wrapper
         run: chmod +x gradlew
