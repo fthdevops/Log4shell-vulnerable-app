@@ -54,7 +54,7 @@ jobs:
         run: chmod +x gradlew
 
       - name: Run Snyk to check for vulnerabilities
-        uses: snyk/actions/gradle@v2  # Use the stable v2 version of the Snyk GitHub Action
+        uses: snyk/actions/iac@master  # Use the stable v2 version of the Snyk GitHub Action
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} 
         
