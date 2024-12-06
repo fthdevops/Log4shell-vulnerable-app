@@ -48,7 +48,8 @@ jobs:
       - name: Set up JDK 17  # or whichever JDK version you are using
         uses: actions/setup-java@v2
         with:
-          java-version: '17'  # Adjust to match your Java version
+          java-version: '17'
+          distribution: 'corretto'  # Adjust to match your Java version
 
       - name: Grant execute permissions for Gradle wrapper
         run: chmod +x gradlew
