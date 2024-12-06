@@ -40,14 +40,22 @@ jobs:
   SCA:
     name: SCA
     runs-on: ubuntu-latest
+
     steps:
-      - uses: actions/checkout@master
+      - name: Checkout the repository
+        uses: actions/checkout@v2  # Checkout latest code (v2 is more stable than 'master')
+
+      - name: Set up JDK 17  # or whichever JDK version you are using
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'  # Adjust to match your Java version
+
+      - name: Grant execute permissions for Gradle wrapper
+        run: chmod +x gradlew
+
       - name: Run Snyk to check for vulnerabilities
-        run: |
-          chmod +x gradlew
-      - name: test snyk
-        uses: snyk/actions/gradle@master
+        uses: snyk/actions/gradle@v2  # Use the stable v2 version of the Snyk GitHub Action
         env:
-          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }} 
         
         
