@@ -45,8 +45,9 @@ jobs:
       - name: Run Snyk to check for vulnerabilities
         run: |
           chmod +x gradlew
-          curl --compressed https://downloads.snyk.io/cli/stable/snyk-macos -o snyk
-          chmod +x ./snyk
-          mv ./snyk /usr/local/bin/
-          snyk tests
+      - name: test snyk
+        uses: snyk/actions/gradle@master
+        env:
+          SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
+        
         
