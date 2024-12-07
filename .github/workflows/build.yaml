@@ -51,11 +51,11 @@ jobs:
         env:
           SNYK_TOKEN: ${{ secrets.SNYK_TOKEN }}
         with:
-          args: --format=html --output=snyk-report.html
+          args: snyk-to-html -o snyk-report.html
         continue-on-error: true
       - name: Upload Snyk SARIF report as artifact
         uses: actions/upload-artifact@v3
         with:
           name: snyk-report  # Artifact name
-          path: snyk-report
+          path: snyk-report.html
         
